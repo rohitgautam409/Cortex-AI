@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json())
 app.use(cookieParser())
 
-app.use('/login', authroute)
+app.use('/', authroute)
 
 app.get('/auth-health', (req, res) => {
 

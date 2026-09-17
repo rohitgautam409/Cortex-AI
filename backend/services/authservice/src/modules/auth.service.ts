@@ -1,5 +1,7 @@
 import type { DecodedIdToken } from "firebase-admin/auth";
 import { AuthRepository } from './auth.repository.js'
+import crypto from 'crypto'
+import redis from '../../../../shared/redis/redis.js'
 
 export class AuthService {
     constructor(private authRepository: AuthRepository) { }

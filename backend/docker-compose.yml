@@ -1,0 +1,38 @@
+services:
+  redis:
+   image: redis
+   ports:
+    - 6379:6379
+   volumes:
+    - redis_data:/data
+
+volumes:
+ redis_data:
+
+
+# //Installing redis
+# install redis package in backend root folder create init file 
+# ioredis
+# in shared create folder create redis.js
+# creating new redis instance 
+# In Auth Controller 
+# first set redis the sessionId as key and give details of the user 
+# set expire also for 7 days
+# Creating logout api also getting the session from cookie and deleting redis session and also remove it 
+# from cookies 
+# creating logout route
+# creating the Home page for the login and in that
+
+# In Gateway creating an /me route for the check the user is verified by using session in middleware by first finding the
+# session from cookies and then checking that session key in the redis, then calling controller for return in data 
+
+# using redux toolkit and react redux for state management
+# setting up the redux and create a file store.js in redux folder
+# box -- called slices for userData and chatData tell them to store
+# create a userslice.js file for creating the slice
+ 
+# login
+
+# Working on Chat service
+ 
+
