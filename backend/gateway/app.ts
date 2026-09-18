@@ -2,6 +2,9 @@ import express from 'express'
 import dotenv from 'dotenv'
 import proxy from 'express-http-proxy'
 import cors from 'cors'
+import { getCurrentUser } from './controller/user.controller.js'
+import { protect } from './middleware/authorization.middleware.js'
+
 
 dotenv.config()
 
@@ -14,7 +17,7 @@ if (!AUTH_SERVICE) {
     throw new Error('AUTH_SERVICE environment variable is not defined')
 }
 
-const app  = express();
+const app = express();
 
 // Enable CORS for all routes and origins for development
 app.use(cors({
@@ -22,8 +25,12 @@ app.use(cors({
     credentials: true
 }))
 
-app.use('/auth', proxy(AUTH_SERVICE))
+//Auth Service Api
+app.use('/api/auth', proxy(AUTH_SERVICE))
+app.get('/api/me', protect, getCurrentUser)
 
+
+//Api to check health of api gateway
 app.get('/gateway-health', (req, res) => {
 
     res.json({
