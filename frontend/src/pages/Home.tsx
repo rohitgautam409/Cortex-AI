@@ -4,8 +4,14 @@ import { auth, googleProvider } from '../../utils/firebase';
 import { FcGoogle } from 'react-icons/fc'
 
 import api from '../../utils/axios'
+import { useSelector, useDispatch } from 'react-redux';
+import { setUserdata } from '../redux/userSlice';
+import type { RootState } from '../redux/store';
 
 const Home: React.FC = () => {
+
+    const dispatch = useDispatch();
+    const { userData } = useSelector((state: RootState) => state.user)
 
     const googleLogin = async () => {
         try {
@@ -23,7 +29,7 @@ const Home: React.FC = () => {
                 }
             );
 
-            console.log(response.data);
+            dispatch(setUserdata(response.data.data));
 
         } catch (error) {
             console.error(error);
@@ -31,8 +37,7 @@ const Home: React.FC = () => {
     };
     return (
         <div className="h-screen flex bg-[#0d0f14] text-white overflow-hidden">
-
-            <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur'>
+            {!userData && <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur'>
                 <div className='w-[340px] bg-[#13151c] border border-white/[0.08] rounded-2xl p-7 flex flex-col gap-5'>
                     <div className='flex flex-col gap-1'>
                         <h2 className='text-[17px] font-semibold text-slate-100 tracking-tight '>Welcome to CortexAI</h2>
@@ -43,7 +48,8 @@ const Home: React.FC = () => {
                         Continue with Google
                     </button>
                 </div>
-            </div>
+            </div>}
+
         </div>
     );
 };

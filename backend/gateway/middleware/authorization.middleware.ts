@@ -4,7 +4,7 @@ import type { Request, Response, NextFunction } from 'express'
 export const protect = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
-        const sessionId = req.cookies?.sessionId
+        const sessionId = req.cookies?.session
 
         if (!sessionId) {
             return res.status(401).json({

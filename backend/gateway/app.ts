@@ -2,8 +2,10 @@ import express from 'express'
 import dotenv from 'dotenv'
 import proxy from 'express-http-proxy'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import { getCurrentUser } from './controller/user.controller.js'
 import { protect } from './middleware/authorization.middleware.js'
+import { proxyWithHeader } from './utils/proxyWithHeader.js'
 
 
 dotenv.config()
@@ -25,10 +27,15 @@ app.use(cors({
     credentials: true
 }))
 
+// Parse Cookies
+app.use(cookieParser())
+
 //Auth Service Api
 app.use('/api/auth', proxy(AUTH_SERVICE))
 app.get('/api/me', protect, getCurrentUser)
 
+//Chat Service Api
+app.use('/api/chat', protect, proxyWithHeader(process.env.CHAT_SERVICE))
 
 //Api to check health of api gateway
 app.get('/gateway-health', (req, res) => {
