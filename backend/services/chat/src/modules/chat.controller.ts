@@ -116,7 +116,7 @@ export class ChatController {
                 });
                 return;
             }
-            const { conversationId, role, content, images } = req.body as SaveMessageBody
+            const { conversationId, role, content, images } = req.body
 
             if (
                 !conversationId ||
