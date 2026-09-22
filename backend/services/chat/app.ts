@@ -6,7 +6,7 @@ import router from './src/modules/chat.route.js'
 
 dotenv.config()
 
-const PORT = process.env.MONGODB_URI || 8002
+const PORT = process.env.PORT || 8002
 const app = express()
 
 app.use(express.json())

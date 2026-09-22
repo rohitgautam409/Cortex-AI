@@ -10,6 +10,76 @@ volumes:
  redis_data:
 
 
+# //Installing redis
+# install redis package in backend root folder create init file 
+# ioredis
+# in shared create folder create redis.js
+# creating new redis instance 
+# In Auth Controller 
+# first set redis the sessionId as key and give details of the user 
+# set expire also for 7 days
+# Creating logout api also getting the session from cookie and deleting redis session and also remove it 
+# from cookies 
+# creating logout route
+# creating the Home page for the login and in that
+
+# In Gateway creating an /me route for the check the user is verified by using session in middleware by first finding the
+# session from cookies and then checking that session key in the redis, then calling controller for return in data 
+
+# using redux toolkit and react redux for state management
+# setting up the redux and create a file store.js in redux folder
+# box -- called slices for userData and chatData tell them to store
+# create a userslice.js file for creating the slice
+
+# First Creating the Store - Where storing all the data that we will be using different files
+# then creating a file of userSlice and creating userSlice
+# reducer help to update the state data
+# Then making flle called store where we configure the store and store all the slices
+#create a Provider from reactredux and 
+#useSelector -- to get the data from store and useDepatch -- to update the data in the store
+ 
+# login
+
+# Working on Chat service
+# npm init -y 
+# installing packaging express dotenv mongoose 
+# create index js file 
+# copy files config file 
+# creating conversation model and message model 
+# Updating gateway env ,creating chat service route
+# creating a utils folder in gateway create proxyheader
+ 
+#  working on chat controller creating all the controllers and creating chat routes
+
+#  Now Let work on the agent Service
+# installing package nodemon dotenv mongoose
+# changing the script in the package.json
+#  Multi Agent AI Platform
+#  Features -
+#  chat Agent
+#  Web search Agent
+#  coding Agent
+#  PDF Agent 
+#  PPT Agent 
+#  ImageGen Agent
+creating a graph folder creating state
+installing langchain and langgraph packages
+create a custom state
+
+Working on the frontend and ui part
+slidebar.tsx
+chatarea.tsx
+artifact.tsx
+connecting to Home Page
+using lucide react for icons
+
+working on slidbar first
+creating a collapsed state
+for conversattion creating a api creating feature section createConverstion.tsx
+ api /create-coversation
+ create getConversation -- creating it api there
+ creating conversation slice --- create setConversation for all the conversatton and addConversation to add the add new chat using unshift
+  
 
 
  
