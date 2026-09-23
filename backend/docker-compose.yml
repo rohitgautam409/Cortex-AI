@@ -35,8 +35,8 @@ volumes:
 # then creating a file of userSlice and creating userSlice
 # reducer help to update the state data
 # Then making flle called store where we configure the store and store all the slices
-#create a Provider from reactredux and 
-#useSelector -- to get the data from store and useDepatch -- to update the data in the store
+# create a Provider from reactredux and 
+# useSelector -- to get the data from store and useDepatch -- to update the data in the store
  
 # login
 
@@ -62,23 +62,23 @@ volumes:
 #  PDF Agent 
 #  PPT Agent 
 #  ImageGen Agent
-creating a graph folder creating state
-installing langchain and langgraph packages
-create a custom state
+# creating a graph folder creating state
+# installing langchain and langgraph packages
+# create a custom state
 
-Working on the frontend and ui part
-slidebar.tsx
-chatarea.tsx
-artifact.tsx
-connecting to Home Page
-using lucide react for icons
+# Working on the frontend and ui part
+# slidebar.tsx
+# chatarea.tsx
+# artifact.tsx
+# connecting to Home Page
+# using lucide react for icons
 
-working on slidbar first
-creating a collapsed state
-for conversattion creating a api creating feature section createConverstion.tsx
- api /create-coversation
- create getConversation -- creating it api there
- creating conversation slice --- create setConversation for all the conversatton and addConversation to add the add new chat using unshift
+# working on slidbar first
+# creating a collapsed state
+# for conversattion creating a api creating feature section createConverstion.tsx
+#  api /create-coversation
+#  create getConversation -- creating it api there
+#  creating conversation slice --- create setConversation for all the conversatton and addConversation to add the add new chat using unshift
   
 
 

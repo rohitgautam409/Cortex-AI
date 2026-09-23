@@ -6,6 +6,7 @@ const getCurrentUser = async () => {
         const { data } = await api.get('/api/me')
         return data;
     } catch (error) {
+        console.log(error)
         return null
     }
 }
