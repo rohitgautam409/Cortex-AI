@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser'
 import { getCurrentUser } from './controller/user.controller.js'
 import { protect } from './middleware/authorization.middleware.js'
 import { proxyWithHeader } from './utils/proxyWithHeader.js'
+import morgan from 'morgan'
 
 
 dotenv.config()
@@ -27,6 +28,8 @@ app.use(cors({
     credentials: true
 }))
 
+app.use(morgan("dev")
+)
 // Parse Cookies
 app.use(cookieParser())
 
@@ -36,6 +39,9 @@ app.get('/api/me', protect, getCurrentUser)
 
 //Chat Service Api
 app.use('/api/chat', protect, proxyWithHeader(process.env.CHAT_SERVICE))
+
+//Agent Service Api
+app.use('/api/agent', protect, proxyWithHeader(process.env.AGENT_SERVICE))
 
 //Api to check health of api gateway
 app.get('/gateway-health', (req, res) => {

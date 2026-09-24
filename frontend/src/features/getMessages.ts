@@ -2,7 +2,7 @@ import api from "../../utils/axios"
 
 
 
-export const getMessage = async (id: string) => {
+export const getMessages = async (id: string) => {
     try {
         const { data } = await api.get(`/api/chat/get-messages/${id}`)
         return data.messages || [];

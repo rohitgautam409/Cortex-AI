@@ -1,6 +1,11 @@
 import api from '../../utils/axios'
 
-export const sendMessage = async (payload) => {
+interface payload {
+    prompt: string,
+    conversationId: string
+}
+
+export const sendMessage = async (payload: payload) => {
     try {
         const { data } = await api.post("/api/agent/chat", payload)
         return data

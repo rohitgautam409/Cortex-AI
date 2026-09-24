@@ -12,7 +12,7 @@ const chatController = new ChatController(chatService)
 
 
 const router = express.Router();
-router.get("/create-conversation", chatController.createCoversation)
+router.post("/create-conversation", chatController.createCoversation)
 router.get("/get-conversations", chatController.getConversations)
 router.post("/update-conversation", chatController.updateConversation)
 router.post("/save-message", chatController.saveMessage)

@@ -12,7 +12,7 @@ export class ChatController {
     createCoversation = async (req: Request, res: Response) => {
 
         try {
-            const userId = req.body.headers["x-user-id"];
+            const userId = req.headers["x-user-id"];
 
             if (!userId || Array.isArray(userId)) {
                 res.status(401).json({
@@ -20,9 +20,9 @@ export class ChatController {
                 })
                 return
             }
-            const conversation = await this.chatService.createConversation(
-                userId
-            )
+            const conversation = await this.chatService.createConversation({
+                userId: userId as string
+            })
             res.status(201).json({
                 conversation
             })

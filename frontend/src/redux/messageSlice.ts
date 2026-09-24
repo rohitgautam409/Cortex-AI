@@ -4,17 +4,17 @@ import { createSlice } from '@reduxjs/toolkit'
 const messageSlice = createSlice({
     name: "message",
     initialState: {
-        message: [],
+        messages: [],
         artifacts: [],
         isLoading: false
     },
     reducers: {
 
-        setMessage: (state, action) => {
-            state.message = action.payload
+        setMessages: (state, action) => {
+            state.messages = action.payload
         },
         addMessage: (state, action) => {
-            state.message.push(action.payload)
+            state.messages.push(action.payload)
         },
         setArtifacts: (state, action) => {
             state.artifacts = action.payload
@@ -25,5 +25,5 @@ const messageSlice = createSlice({
     }
 })
 
-export const { setMessage, addMessage, setArtifacts, setIsLoading } = messageSlice.actions
+export const { setMessages, addMessage, setArtifacts, setIsLoading } = messageSlice.actions
 export default messageSlice.reducer

@@ -8,10 +8,10 @@ export class ChatService {
 
     constructor(private chatRepository: ChatRepository) { }
 
-    async createConversation(userId: CreateConversationData) {
+    async createConversation(data: CreateConversationData) {
 
         return this.chatRepository.createConversation(
-            userId
+            data
         )
     }
 

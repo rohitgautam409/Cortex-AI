@@ -19,7 +19,7 @@ const openrouter = new ChatOpenRouter(({
     maxTokens: 2500
 }))
 
-export const getModel = async (agent) => {
+export const getModel = async (agent: string) => {
     switch (agent) {
         case "chat":
             return groq;
