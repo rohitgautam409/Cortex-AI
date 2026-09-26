@@ -8,18 +8,17 @@ export const agent = async (req: Request, res: Response, next: NextFunction) => 
 
     try {
 
-        const { prompt, conversationId, agent } = req.body
-        const userId = req.headers['x-user-id'];
+        const { prompt, conversationId } = req.body
+        const userId = req.headers['x-user-id'] as string;
 
         await axios.post(`${process.env.CHAT_SERVICE}/save-message`, {
             conversationId, role: 'user', content: prompt
         }, { headers: { 'x-user-id': userId } })
 
-
-
         const result = await graph.invoke({
-            prompt, conversationId, agent
+            prompt, conversationId, userId
         })
+
         const response = result.aiResponse
 
         await addMessage(conversationId, "user", prompt)

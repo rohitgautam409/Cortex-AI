@@ -1,11 +1,17 @@
 import axios from 'axios'
 
-export const getMessages = async (conversationId: string) => {
+export const getMessages = async (conversationId: string, userId: string) => {
     try {
-        const { data } = await axios.get(`${process.env.CHAT_SERVICE}/get-messages/${conversationId}`)
-        return data
+
+        const { data } = await axios.get(`${process.env.CHAT_SERVICE}/get-messages/${conversationId}`, {
+            headers: { 'x-user-id': userId }
+        })
+
+        return data.messages
+
     } catch (error) {
         console.log(error)
         return null
     }
+
 }
