@@ -34,6 +34,7 @@ export class ChatRepository {
     //Messages
 
     async createMessage(data: CreateMessageData) {
+
         return Message.create(data)
     }
 

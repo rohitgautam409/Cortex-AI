@@ -116,7 +116,9 @@ export class ChatController {
                 });
                 return;
             }
-            const { conversationId, role, content, images } = req.body
+            const { conversationId, role, content, images, artifacts } = req.body
+
+
 
             if (
                 !conversationId ||
@@ -136,7 +138,8 @@ export class ChatController {
                 conversationId,
                 role,
                 content,
-                images
+                images,
+                artifacts
             )
             res.status(201).json({
                 message

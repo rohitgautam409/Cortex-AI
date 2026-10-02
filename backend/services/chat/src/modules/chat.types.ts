@@ -11,7 +11,9 @@ export interface CreateMessageData {
     conversationId: Types.ObjectId,
     role: "user" | "assistant",
     content: string,
-    images?: string[]
+    images?: string[],
+    artifacts?: any[],
+
 }
 
 export interface UpdateConversationBody {
@@ -23,4 +25,5 @@ export interface SaveMessageBody {
     role: "user" | "assistant";
     content: string;
     images?: string[];
+    artifacts?: any[];
 }

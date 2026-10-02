@@ -1,7 +1,13 @@
 import api from '../../utils/axios'
 
 
-export const updateConversation = async (payload) => {
+
+interface payload {
+    title: string,
+    id: string
+}
+
+export const updateConversation = async (payload: payload) => {
     try {
         const { data } = await api.post('/api/chat/update-conversation', payload)
         return data

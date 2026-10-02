@@ -45,7 +45,8 @@ export class ChatService {
         conversationId: string,
         role: "user" | "assistant",
         content: string,
-        images?: string[]
+        images?: string[],
+        artifacts?: any[],
     ) {
         const conversation = await this.chatRepository.findConversationByUser(
             conversationId,
@@ -60,7 +61,8 @@ export class ChatService {
             conversationId: new Types.ObjectId(conversationId),
             role,
             content,
-            images
+            images,
+            artifacts
         })
     }
 

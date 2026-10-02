@@ -15,18 +15,18 @@ export const chatAgent = async (state: AgentState) => {
         const history = await getMemory(state.conversationId, state.userId)
 
 
-        // const searchContext = state.searchResults ?`
-        // Web Search Result:
-        // ${JSON.stringify(state.searchResults)}
+        const searchContext = state.searchResults ? `Web Search Result:
+        ${JSON.stringify(state.searchResults)}
 
-        //     Answer the user using only the search results` : ""
+            Answer the user using only the search results` : ""
 
-        //    it will be in system prompt--  ${searchContext}
-        //   If searchContext exist:
-        //   - Use Search results to answer.
-        //   - Do not mention internal tools
 
         const systemPrompt = `You are CortexAI, an intelligent AI assistant.
+
+        it will be in system prompt--  ${searchContext}
+          If searchContext exist:
+          - Use Search results to answer.
+          - Do not mention internal tools
 
 
       Rules:

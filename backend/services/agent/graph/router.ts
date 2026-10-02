@@ -1,7 +1,8 @@
 import { getModel } from "../config/llmModels.js"
 import { agent } from "../controller/agent.controller.js"
+import type { AgentState } from "./state.js"
 
-export const router = async (state) => {
+export const router = async (state: AgentState) => {
 
     if (state.agent && state.agent !== "auto") {
         return {
@@ -90,9 +91,11 @@ User Query:
 
     const response = await llm.invoke(prompt)
 
+    const content = typeof response.content === "string" ? response.content : "";
+
     return {
         ...state,
-        agent: response.content
+        agent: content
             .trim()
             .toLowerCase()
     }

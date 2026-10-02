@@ -12,12 +12,13 @@ export const getMemory = async (conversationId: string, userId: string): Promise
     const key = `messages-${conversationId}`
     const cached = await redis.get(key)
     if (cached) {
-        return JSON.parse(cached)
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed)) return parsed;
     }
     const messages = await getMessages(conversationId, userId)
 
     console.log(messages + "Hello World")
-    await redis.set(key, JSON.stringify(messages), "EX", 24 * 60 * 60)
+    await redis.set(key, JSON.stringify(messages || []), "EX", 24 * 60 * 60)
 
     return messages || []
 }
